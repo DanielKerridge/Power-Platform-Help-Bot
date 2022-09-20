@@ -25,6 +25,14 @@
 
 {% endif %}
 
+{{ my_query.xml | escape }}
+{{ my_query.results.total_record_count }}
+{{ my_query.results.more_records }}
+{{ my_query.results.paging_cookie | escape }}
+{% for result in my_query.results.entities %}
+  {{ result.id | escape }}
+{% endfor %}
+
 var inverterItemStatus = "{{ itemStatus }}";
 
 newArray =  [
