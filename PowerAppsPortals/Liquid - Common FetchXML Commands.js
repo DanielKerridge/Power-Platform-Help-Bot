@@ -33,6 +33,26 @@
   {{ result.id | escape }}
 {% endfor %}
 
+{
+  "totalcount": {{ feed.results.total_record_count }},
+  "morerecords": {{ feed.results.more_records }},
+  "page": {{ request.params['page'] | default: 0 }},
+  "results": [
+    {% for item in feed.results.entities %}
+      {
+        "starttime": "{{ item.dpx_starttime | date_to_iso8601 }}",
+        "endtime": "{{ item.dpx_endtime | date_to_iso8601 }}",
+        "instructorname": "{{ item['instructorlink.dpx_contactid'].name }}",
+        "courselevel": "{{ item['courselink.dpx_level'].label }}",
+        "location": {
+          "id" : "{{ item.dpx_courselocationid.id }}",
+          "name": "{{ item.dpx_courselocationid.name }}"
+        }
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ]
+}
+
 var inverterItemStatus = "{{ itemStatus }}";
 
 newArray =  [
