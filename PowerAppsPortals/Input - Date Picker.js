@@ -21,3 +21,29 @@ $( "#openSubmitPackButton" ).click(function() {
     $("#UpdateButton").click();
   
 });
+
+On date picker change
+var dpcontrol = $('#vel_commissioningdate').parent();
+$(dpcontrol).on("dp.change", function (e) {
+  if ($('#vel_datasource').val() != '282000001')
+  $("#vel_state").val('282000003');
+});
+
+set min date for a date picker
+$("#cracc_hatchdate").next().data("DateTimePicker").minDate(moment(HatchDateMinus2));
+
+show today button
+$('#ID_OF_YOUR_FIELD').next().data("DateTimePicker").showTodayButton(true);
+
+clear the datepicker
+$('#vel_commissioningdate').next().data("DateTimePicker").clear()
+
+view all date picker options in dev tools
+$('#vel_commissioningdate').next().data("DateTimePicker")
+
+Get format of date picker
+$('#vel_completedon').next().data("DateTimePicker").date()
+
+Set the date value for a date picker:
+https://bernado-nguyen-hoan.com/2018/07/24/how-to-set-value-for-date-time-field-by-javascript-in-crm-portal/
+
