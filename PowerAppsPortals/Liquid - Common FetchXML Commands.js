@@ -22,7 +22,8 @@
 {% endfetchxml %}
  
 {% if shoppingCart.results.entities.size > 0 %}
-
+ Get the first item returned from the fetchxml
+ {% assign itemDatasource = inverterItemStatus.results.entities[0].vel_datasource.label %}
 {% endif %}
 
 {{ my_query.xml | escape }}
