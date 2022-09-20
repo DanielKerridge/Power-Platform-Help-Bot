@@ -18,7 +18,7 @@ function callPowerAutomate(id){
     var objInverterGroup = {};
     objInverterGroup.invertergroupitemid = id;
     var stringJSON = JSON.stringify(objInverterGroup);
-    var httpTriggerUrl = "https://prod-13.australiasoutheast.logic.azure.com:443/workflows/a9ec3de6cfb84713aa023829e83181bf/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_TXRcNCPfAQD2OpdsfvhaobZpZCWFtcxlnlj9QGsCbg";
+    var httpTriggerUrl = "";
     
     $.ajax({
         type: "POST",
